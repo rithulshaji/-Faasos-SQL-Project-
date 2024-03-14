@@ -13,6 +13,57 @@ This project involves a SQL database for managing orders, drivers, ingredients, 
 - **driver_order**: Records details of orders delivered by drivers, including pickup time, distance, duration, and cancellation status.
 - **customer_orders**: Stores information about customer orders, including customer ID, roll ID, additional items, and order date.
 
+### `driver` Table
+
+| Column       | Description                             | Data Type |
+|--------------|-----------------------------------------|-----------|
+| driver_id    | Unique identifier for drivers           | INTEGER   |
+| reg_date     | Date when the driver registered         | DATE      |
+
+### `ingredients` Table
+
+| Column            | Description                      | Data Type |
+|-------------------|----------------------------------|-----------|
+| ingredients_id    | Unique identifier for ingredients| INTEGER   |
+| ingredients_name  | Name of the ingredient           | VARCHAR   |
+
+### `rolls` Table
+
+| Column    | Description                  | Data Type |
+|-----------|------------------------------|-----------|
+| roll_id   | Unique identifier for rolls  | INTEGER   |
+| roll_name | Name of the roll             | VARCHAR   |
+
+### `rolls_recipes` Table
+
+| Column       | Description                               | Data Type |
+|--------------|-------------------------------------------|-----------|
+| roll_id      | Unique identifier for rolls               | INTEGER   |
+| ingredients  | List of ingredient IDs used in each roll | VARCHAR   |
+
+### `driver_order` Table
+
+| Column         | Description                                | Data Type |
+|----------------|--------------------------------------------|-----------|
+| order_id       | Unique identifier for orders               | INTEGER   |
+| driver_id      | Unique identifier for drivers              | INTEGER   |
+| pickup_time    | Date and time of pickup                    | DATETIME  |
+| distance       | Distance of delivery                       | VARCHAR   |
+| duration       | Duration of delivery                       | VARCHAR   |
+| cancellation   | Status of order (e.g., 'Cancellation')    | VARCHAR   |
+
+### `customer_orders` Table
+
+| Column            | Description                              | Data Type |
+|-------------------|------------------------------------------|-----------|
+| order_id          | Unique identifier for orders             | INTEGER   |
+| customer_id       | Unique identifier for customers          | INTEGER   |
+| roll_id           | Unique identifier for rolls              | INTEGER   |
+| not_include_items | Items not included in the order          | VARCHAR   |
+| extra_items_included | Additional items included in the order | VARCHAR   |
+| order_date        | Date and time of the order               | DATETIME  |
+
+
 ## Queries <a name="queries"></a>
 
 ### Rolls Matrix <a name="rolls-matrix"></a>
